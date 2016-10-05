@@ -1,0 +1,72 @@
+Write a program to access a protected method of a class in different package
+
+
+
+package first;
+
+import second.testprotected;
+
+public class A extends testprotected
+{
+	int a,b;
+	public A()
+        {	
+        }
+
+	public A(int val1,int val2)
+	{
+		a=val1;
+		b=val2;
+	}
+	
+	public void multiply()
+	{
+		System.out.println("The product of the two numbers is:"+ a*b);
+	}
+
+
+        public static void main(String[] args) 
+        {
+	 A ob=new A(35,67); 
+	 ob.multiply();	 
+	 ob.print();
+	 testprotected tp=new testprotected(4,6);
+	 tp.areatriangle();
+	}
+	
+}
+
+
+
+
+
+package second;
+
+
+public class testprotected 
+{
+	int a,b;
+	public testprotected()
+	{
+		
+	}
+	
+	public testprotected(int n1,int n2)
+	{
+		a=n1;
+		b=n2;
+	}
+	
+	public void areatriangle()
+	{
+		double area=0.5*a*b;	
+                System.out.println("Area of triangle:" + area);
+	}
+
+       protected void print()
+       {
+	System.out.println("This is Inside package second and displaying the printtestprotected()");
+	
+       }
+
+}
